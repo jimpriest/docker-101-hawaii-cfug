@@ -2,13 +2,13 @@
 
 Next lets start an Ubuntu container.
 
-Normally you would could
+Normally you could:
 
 1. dual boot
 2. install Ubuntu within a VM
 3. use something like WSL if you are using Windows
 
-But with Docker we can quickly spin up an Ubuntu machine!
+But with Docker we can quickly spin up an Ubuntu machine anywhere!
 
 Run:
 
@@ -17,7 +17,7 @@ docker run -it ubuntu bash
 ```
 
 
-This will run and you will be in Ubuntu!  Poke around and see what is there.
+This will run and you will be in Ubuntu! The '-it' is short for --interactive + --tty.
 To get out of the container just type 'exit' and you will be back to your host machine.
 
 And if we look at our images again we can see 'Ubuntu' is now downloaded.
