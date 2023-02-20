@@ -12,7 +12,7 @@ docker run -p 8080:8080 -v "$PWD:/app" ortussolutions/commandbox
 We can break this down
 
 - -p 8080:8080  exposes port 8080 on your host to port 8080 within the container (host:container)
-- -v ".:/app" will map this directory with /app within the container.
+- -v "${PWD}:/app" will map this directory with /app within the container.
 
 Once running you should be able to visit: http://localhost:8080/index.cfm
 
