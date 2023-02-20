@@ -1,12 +1,12 @@
 # Dockerfile
 
-While running Docker via the cli works - it becomes more difficult to do more advanced things.
+While running Docker via the cli works - it becomes difficult to do more advanced things.
 
 Here we will introduce the 'Dockerfile'.  A Dockerfile can be used to build our own image.
 
 We can run that image, share it with a co-worker or we could push it to a container registry so others may use it.
 
-This is a simple file which allows you to spin up an image and add additional configuration information.
+This is a simple file which allows you to create an image and add additional configuration information.
 
 
 1. Navigate to this directory and run the following:
@@ -31,8 +31,12 @@ And now we can run our image:
 docker run -t -p 8080:8080 website
 ```
 
-Notice this time we don't have to map a directory.  Within the Dockerfile we copied our index.cfm
-to the container.
+Notice this time we don't have to map a directory.  
+
+Within the Dockerfile we have two lines:
+
+1. FROM tells the Docker 'from' where it should pull an existing image.  Yes, we're going to use an existing image as a base to build or own custom image.
+2. COPY will copy the index.cfm file from our host into the container within the /app directory. By default Commandbox will use this /app directory as the web root.
 
 ```
 FROM ortussolutions/commandbox
