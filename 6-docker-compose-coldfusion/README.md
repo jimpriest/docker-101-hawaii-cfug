@@ -1,19 +1,13 @@
-# Docker Compose
+# Docker Compose - ColdFusion
 
-What's the differene between a Dockerfile and Docker Compose?
+With Mailhog running now we can expand our docker-compose.yml file and add
+some additional information to start a ColdFusion server.
 
-A Dockerfile is a simple text file that contains the commands a user could call
-to build an image whereas Docker Compose is a tool for defining and running
-multi-container Docker applications.
+Things to note - we've added a 'network'. This allows the containers to talk to
+each other.  So when ColdFusion sends an email - it will be routed to the Mailhog server.
 
-In the next few examples we'll build out an entire development environment we
-can use for CFML:
-
-- Mailhog - a SMTP server so we can test email
-- ColdFusion - our Application server
-- MSSQL - our database
-
-The Docker Compose file is a simple yaml file:
+Also note that the ColdFusion service 'depends' on Mailhog. So when the CFML service
+starts it will automatically start the Mailhog service as well (if it's not already running).
 
 ```
 version: '3'
@@ -22,9 +16,31 @@ services:
   mailhog:
       container_name: mailhog
       image: mailhog/mailhog
+      networks:
+        local:
       ports:
         - '1025:1025'
         - '8025:8025'
+
+  cfml:
+    container_name: cfml
+    image: ortussolutions/commandbox:adobe2018
+    environment:
+      cfconfig_adminPassword: password
+      cfconfigfile: myconfig.json
+    depends_on:
+      - mailhog
+    networks:
+      local:
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${PWD}:/app
+
+networks:
+  local:
+    driver: bridge
+
 ```
 
 Here we will pull the mailhog image and start it.  We will expose two ports:

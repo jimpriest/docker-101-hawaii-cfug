@@ -3,7 +3,7 @@
 This will be confusing if you haven't used Docker before but below are some
 helpful commands if you get stuck.
 
-#### Already Running Container
+## Already Running Container
 
 You may see a message about a container already in use: "The container name "/mailhog" is already in use by container"
 
@@ -27,7 +27,7 @@ docker kill 882e6
 Kill will stop and remove the container.
 
 
-#### Docker Prune Things
+## Docker Prune Things
 
 While building images, etc. Docker create a lot of temporary information - layers,
 networks, temp images etc. These can build up over time and depending on the images
@@ -54,7 +54,7 @@ WARNING! This will remove:
 
 This is helpful if you get stuck and just need to quickly reset.
 
-#### Removing Images
+## Removing Images
 
 If you are done experimenting remember you can also list and remove images you
 are no longer using:
@@ -73,4 +73,11 @@ Untagged: ubuntu@sha256:9a0bdde4188b896a372804be2384015e90e3f84906b750c1a53539b5
 Deleted: sha256:58db3edaf2be6e80f628796355b1bdeaf8bea1692b402f48b7e7b8d1ff100b02
 ```
 
+## Case Sensitivity
+
+If you are coming from a Windows or Mac environment - remember within Docker
+you are usually interacting with a Linux environment and Linux is case SENSITIVE!
+
+So if you name a file Index.cfm and are getting messages about
+ file not found - it may be looking for index.cfm.
 
