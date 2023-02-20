@@ -43,72 +43,29 @@ networks:
 
 ```
 
-Here we will pull the mailhog image and start it.  We will expose two ports:
+We've also exposed the same ports as we did before running the single line command as well as mapped our current directory into /app in the container.
 
-- 1025 - which we can use in ColdFusion's SMTP settings
-- 8025 - which provides a simple GUI to interact with email
+The 'environment' lines will set a few environment variables which in this case or for using [CFConfig](https://cfconfig.ortusbooks.com/using-the-cli/env-var-overrides). We can set our CFAdmin password and also pass in our .json file for our full CFConfig file.
 
-Run this using 'docker compose':
+
+Run this using 'docker compose up':
 
 ```
 docker compose up
+```
 
-[+] Running 2/2
- ⠿ Network 5-docker-compose_default Created
- ⠿ Container mailhog                 Started
- ```
+Again you should be able to watch Mailhog and then the CFML service start. 
 
-You can see it started our Mailhog container and if you
-visit: http://localhost:8025/ you should see the Mailhog interface.
+Now verify they are working:
 
-Note this is now running the background.  To stop things run:
+- ColdFusion administrator:  http://localhost/CFIDE/administrator
+- Application: http://localhost:8080
+
+To stop things:
 
 ```
 docker compose down
 ```
 
-Down will stop the service and remove the container.
 
-You can also do:
-
-```
-docker compose stop
-```
-
-Which will just stop the service while leaving the container intact.
-
-For a list of all the options try:
-
-```
-docker compose help
-
-Commands:
-  build       Build or rebuild services
-  config      Parse, resolve and render compose file in canonical format
-  cp          Copy files/folders between a service container and the local filesystem
-  create      Creates containers for a service.
-  down        Stop and remove containers, networks
-  events      Receive real time events from containers.
-  exec        Execute a command in a running container.
-  images      List images used by the created containers
-  kill        Force stop service containers.
-  logs        View output from containers
-  ls          List running compose projects
-  pause       Pause services
-  port        Print the public port for a port binding.
-  ps          List containers
-  pull        Pull service images
-  push        Push service images
-  restart     Restart service containers
-  rm          Removes stopped service containers
-  run         Run a one-off command on a service.
-  start       Start services
-  stop        Stop services
-  top         Display the running processes
-  unpause     Unpause services
-  up          Create and start containers
-  version     Show the Docker Compose version information
-```
-
-In the next lesson we'll add ColdFusion!
-
+Next we'll add Microsoft SQL Server and wire everything together.
