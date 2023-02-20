@@ -1,0 +1,29 @@
+{
+  "paths": "**.cf?",
+  "minSeverity": 4,
+  "includeRules": {
+		"Maintenance": ["Don't use Dump", "Don't use Abort"]
+  },
+  "excludeRules": {
+    "Security Risks - Best Practices": [
+      "cfhttp tag",
+      "createObject script",
+      "cffile tag",
+      "cfdirectory tag",
+      "cfexecute tag",
+      "fileRead script"
+    ],
+    "Standards": [
+      "Don't use cfquery in a cfm page",
+      "Don't use shared scope variables in a CFC"
+    ],
+    "Performance": [
+      "Don't use Evaluate method",
+      "Don't use DE method",
+      "Don't use iif method"
+    ],
+    "VarScoper": "*",
+    "QueryParamScanner": "*",
+    "Case Sensitive Functions - Best Practices": "*"
+  }
+}
