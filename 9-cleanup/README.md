@@ -7,7 +7,7 @@ First lets verify we've removed all our images:
 ```
 docker image ls
 
-docker image rm hello-world ubuntu mailhog/mailhog ortussolutions/commandbox ortussolutions/commandbox:adobe2018 mcr.microsoft.com/mssql/server:2017-latest foundeo/cfml-ci-tools --force
+docker image rm hello-world ubuntu mailhog/mailhog ortussolutions/commandbox ortussolutions/commandbox:adobe2018 mcr.microsoft.com/mssql/server:2017-latest foundeo/cfml-ci-tools website --force
 ```
 
 We have removed our images but we may still have artifacts around we can't see.
