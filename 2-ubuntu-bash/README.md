@@ -4,9 +4,10 @@ Next lets start an Ubuntu container.
 
 Normally you could:
 
-1. dual boot
-2. install Ubuntu within a VM
-3. use something like WSL if you are using Windows
+1. install Ubuntu in the cloud
+2. dual boot
+3. install Ubuntu within a VM
+4. use something like WSL if you are using Windows
 
 But with Docker we can quickly spin up an Ubuntu machine anywhere!
 
@@ -16,26 +17,25 @@ Run:
 docker run -it ubuntu bash
 ```
 
-
 This will run and you will be in Ubuntu! The '-it' is short for --interactive + --tty.
 To get out of the container just type 'exit' and you will be back to your host machine.
 
-And if we look at our images again we can see 'Ubuntu' is now downloaded.
+And if we look at our images again we can see 'Ubuntu' is now listed.
 
 ```
 docker image ls
 ```
 
-Since we don't need the hello-world image we can delete that easily:
+Since we don't need the hello-world or Ubuntu image we can delete them easily:
 
 ```
-docker image rm hello-world
+docker image rm hello-world ubuntu
 ```
 
-If you get an error you can force the deletion:
+If you get an error or conflict you can force the deletion:
 
 ```
-docker image rm hello-world --force
+docker image rm hello-world ubuntu --force
 ```
 
 To see a list of all the image commands:

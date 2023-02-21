@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  mailhog:
+      container_name: mailhog
+      image: mailhog/mailhog
+      networks:
+        local:
+      ports:
+        - '1025:1025'
+        - '8025:8025'
+
+  cfml:
+    container_name: cfml
+    image: ortussolutions/commandbox:adobe2018
+    environment:
+      cfconfig_adminPassword: password
+      cfconfigfile: myconfig.json
+    depends_on:
+      - mailhog
+    networks:
+      local:
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${PWD}:/app
+
+  mssql:
+    container_name: mssql
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    volumes:
+      - mssql_server_data:/var/opt/mssql/data
+      - ${PWD}/database-backups:/var/opt/mssql/backups
+    environment:
+      SA_PASSWORD: 'Your_password123'
+      ACCEPT_EULA: 'Y'
+      MSSQL_PID: 'Developer'
+    networks:
+      local:
+    ports:
+      - '1433:1433'
+
+volumes:
+  mssql_server_data:
+
+networks:
+  local:
+    driver: bridge

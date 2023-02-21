@@ -3,6 +3,12 @@
 This will be confusing if you haven't used Docker before but below are some
 helpful commands if you get stuck.
 
+## Your Host Computer - Windows vs Mac vs Linux
+
+I created these demos on a Linux machine.  Docker is cross compatible as are all
+the tools I'll be using in the demos but you may need to tweak things due to
+differences in the various operating systems.
+
 ## Already Running Container
 
 You may see a message about a container already in use: "The container name "/mailhog" is already in use by container"

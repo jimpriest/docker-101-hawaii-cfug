@@ -43,7 +43,7 @@ docker compose up
  ```
 
 You can see it started our Mailhog container and if you
-visit: http://localhost:8025/ you should see the Mailhog interface.
+visit: [http://localhost:8025/](http://localhost:8025/) you should see the Mailhog interface.
 
 Note this is now running the background.  To stop things run:
 
@@ -51,7 +51,7 @@ Note this is now running the background.  To stop things run:
 docker compose down
 ```
 
-Down will stop the service and remove the container.
+'Down' will stop the service and remove the container.
 
 You can also do:
 

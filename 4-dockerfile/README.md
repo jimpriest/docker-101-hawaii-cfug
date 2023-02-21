@@ -8,8 +8,10 @@ We can run that image, share it with a co-worker or we could push it to a contai
 
 This is a simple file which allows you to create an image and add additional configuration information.
 
+Building images is an advanced topic and I won't go into much detail her other than this simple example.
 
-1. Navigate to this directory and run the following:
+
+Navigate to this directory (/docker-101-hawaii-cfug/4-dockerfile) and run the following:
 
 
 ```
@@ -31,19 +33,20 @@ And now we can run our image:
 docker run -t -p 8080:8080 website
 ```
 
-Notice this time we don't have to map a directory.  
+Notice this time we don't have to map a directory.
 
 Within the Dockerfile we have two lines:
 
 1. FROM tells the Docker 'from' where it should pull an existing image.  Yes, we're going to use an existing image as a base to build or own custom image.
 2. COPY will copy the index.cfm file from our host into the container within the /app directory. By default Commandbox will use this /app directory as the web root.
+3. Note you can no longer change the text in the file and have it appear when you refresh that browser. You would need to change the text and rebuild the image.
 
 ```
 FROM ortussolutions/commandbox
 COPY index.cfm /app
 ```
 
-Once running you should be able to visit: http://localhost:8080/index.cfm
+Once running you should be able to visit: [http://localhost:8080/index.cfm](http://localhost:8080/index.cfm)
 
 And see:
 
@@ -54,6 +57,6 @@ From a file that was copied into the container.
 {ts '2023-02-20 20:48:33'}
 ```
 
-Building images is an advanced topic and I won't go into more here.
+
 
 Next we'll look at docker-compose which allows us to easily spin up one or more images.

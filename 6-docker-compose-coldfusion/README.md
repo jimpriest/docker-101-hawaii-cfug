@@ -47,6 +47,8 @@ We've also exposed the same ports as we did before running the single line comma
 
 The 'environment' lines will set a few environment variables which in this case or for using [CFConfig](https://cfconfig.ortusbooks.com/using-the-cli/env-var-overrides). We can set our CFAdmin password and also pass in our .json file for our full CFConfig file.
 
+We have also included server.json file which gives us more granular control over our server. Here we can pass additional settings for memory, configuration, etc.
+
 
 Run this using 'docker compose up':
 
@@ -54,18 +56,13 @@ Run this using 'docker compose up':
 docker compose up
 ```
 
-Again you should be able to watch Mailhog and then the CFML service start. 
+Again you should be able to watch Mailhog and then the CFML service start.
 
 Now verify they are working:
 
-- ColdFusion administrator:  http://localhost/CFIDE/administrator
-- Application: http://localhost:8080
+- ColdFusion administrator:  [http://localhost:8080/CFIDE/administrator](http://localhost:8080/CFIDE/administrator)
+- Application: [http://localhost:8080](http://localhost:8080)
 
-To stop things:
-
-```
-docker compose down
-```
-
+To stop things hit CTRL+C.
 
 Next we'll add Microsoft SQL Server and wire everything together.
