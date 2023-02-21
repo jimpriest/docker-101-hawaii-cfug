@@ -4,12 +4,11 @@ While running Docker via the cli works - it becomes difficult to do more advance
 
 Here we will introduce the 'Dockerfile'.  A Dockerfile can be used to build our own image.
 
-We can run that image, share it with a co-worker or we could push it to a container registry so others may use it.
+You can install whatever you want and configure it however you like.
 
-This is a simple file which allows you to create an image and add additional configuration information.
+We can then run that image, share it with a co-worker or we could push it to a container registry so others may use it.
 
 Building images is an advanced topic and I won't go into much detail her other than this simple example.
-
 
 Navigate to this directory (/docker-101-hawaii-cfug/4-dockerfile) and run the following:
 

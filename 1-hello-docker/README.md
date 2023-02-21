@@ -1,6 +1,6 @@
 # Hello Docker
 
-We'll start with the simple hello world - though we'll run it from WITHIN Docker!
+We'll start with the simple hello world example though we'll run it from WITHIN Docker!
 
 See: [https://hub.docker.com/_/hello-world](https://hub.docker.com/_/hello-world)
 

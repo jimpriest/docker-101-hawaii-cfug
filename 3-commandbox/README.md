@@ -3,9 +3,9 @@
 Let's see how quickly we can spin up a running Lucee server.
 
 1. Navigate to this directory (/docker-101-hawaii-cfug/3-commandbox)
-2. Then run the following:
+2. Note: If you run this command from a different directory you will get an error about not being able to find index.cfm!
+3. Run the following:
 
-If you run this command from a different directory you will get an error about not being able to find index.cfm!
 
 ```
 docker run -p 8080:8080 -v "$PWD:/app" ortussolutions/commandbox
@@ -47,6 +47,8 @@ Example:
 docker kill a8ac1df8775c
 ```
 
+
 While this works it doesn't allow us a lot of options to configure things.
+
 
 We'll explore that in the next example.
