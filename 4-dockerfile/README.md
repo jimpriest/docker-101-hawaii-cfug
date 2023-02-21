@@ -29,7 +29,7 @@ website                     latest    31f1cced1556   13 seconds ago   717MB
 And now we can run our image:
 
 ```
-docker run -t -p 8080:8080 website
+docker run -p 8080:8080 website
 ```
 
 Notice this time we don't have to map a directory.
